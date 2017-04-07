@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">  
+        <div class="box">0</div>  
+        <div class="box">1</div>  
+        <div class="box">2</div>  
+        <div class="box">3</div>  
+        <div class="box">4</div>  
+      </div>  
+	</body>
+</html>
+<script>
+	var boxId = document.querySelector("#box");  
+        var boxClass = boxId.querySelector(".box");
+        console.log(boxId)
+        var arr = [];  
+        if ( boxClass instanceof Array ) {  
+        for (var i = 0, len = boxClass.length; i < len; i++) {  
+           console.log(boxClass[i].innerHTML);  
+        }  
+        } else if ( boxClass instanceof Object ) {  
+           console.log(nextSibling(boxClass).innerHTML);  
+        }   
+          
+        function nextSibling(curvObj) {  
+            
+          /** 
+           * 1 元素节点  
+           * 2属性 
+           * 3文本 
+           * 8注释 
+           * 9document 
+           */   
+          var currentNode = curvObj.nextSibling;  
+            
+        if ( currentNode.nodeType == 1 ) {  
+          return currentNode;  
+        }  
+     
+        return nextSibling(currentNode);  
+        }  
+</script>
+
